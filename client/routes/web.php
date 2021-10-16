@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use \Protobuf\Guestbook\GuestBookServiceClient;
+use \Protobuf\Greet\GreeterClient;
+use \Protobuf\Greet\HelloRequest;
 use \Protobuf\Guestbook\PBEmpty;
 
 /*
@@ -20,10 +22,12 @@ Route::get('/', function () {
 });
 
 Route::get('testgrpc', function(){
-    $client = new GuestBookServiceClient('localhost:50051', [
+    $request = new HelloRequest();
+    $request->setName('coba');
+    $client = new GreeterClient('grpc.dimiegroup.com', [
         'credentials' => \Grpc\ChannelCredentials::createInsecure(),
     ]);
-    list($error, $data) = $client->List(new PBEmpty())->wait();
+    list($error, $data) = $client->SayHello($request)->wait();
     return $data;
 });
 

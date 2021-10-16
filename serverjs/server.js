@@ -1,7 +1,7 @@
 const grpc = require('@grpc/grpc-js');
 const loader = require('@grpc/proto-loader');
 const packageDefinition = loader.loadSync('guestbook.proto', {
-    keepCase: true,
+    keepCase: false,
     longs: String,
     enums: String,
     defaults: true,
