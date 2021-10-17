@@ -30,7 +30,7 @@ class HelloReply extends \Google\Protobuf\Internal\Message
      * }
      */
     public function __construct($data = NULL) {
-        \Protobuf\Greet\Greet::initOnce();
+        \Protobuf\Metadata\Greet::initOnce();
         parent::__construct($data);
     }
 

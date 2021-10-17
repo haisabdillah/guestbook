@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+
+option php_metadata_namespace = "Protobuf\\Metadata";
+package protobuf.guestbook;
+service GuestBookService {
+    rpc List (Empty) returns (GuestBookList) {}
+    rpc GetData (GuestBook) returns (ResGuestBook) {}
+}
+
+
+message Empty {}
+
+message ResGuestBook{
+   string message = 1;
+}
+message GuestBook {
+   string id = 1;
+   string email = 2;
+   string comment = 3;
+}
+
+message GuestBookList {
+   repeated GuestBook guestbook = 1;
+}
