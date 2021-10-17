@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \Protobuf\Guestbook\GuestBookServiceClient;
+use \Protobuf\Guestbook\GreetClient;
 use \Protobuf\Greet\GreeterClient;
 use \Protobuf\Greet\HelloRequest;
 use \Protobuf\Guestbook\PBEmpty;
@@ -24,7 +25,7 @@ Route::get('/', function () {
 Route::get('testgrpc', function(){
     $request = new HelloRequest();
     $request->setName('coba');
-    $client = new GreeterClient('grpc.dimiegroup.com', [
+    $client = new GreeterClient("grpc.dimiegroup.com", [
         'credentials' => \Grpc\ChannelCredentials::createInsecure(),
     ]);
     list($error, $data) = $client->SayHello($request)->wait();

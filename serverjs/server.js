@@ -1,14 +1,7 @@
-const grpc = require('@grpc/grpc-js');
-const loader = require('@grpc/proto-loader');
-const packageDefinition = loader.loadSync('guestbook.proto', {
-    keepCase: false,
-    longs: String,
-    enums: String,
-    defaults: true,
-    oneofs: true,
-});
+var services = require('./guestbook_grpc_pb');
 
-const pkg = grpc.loadPackageDefinition(packageDefinition);
+const grpc = require('@grpc/grpc-js');
+
 //Creates the new server
 const server = new grpc.Server();
 
@@ -18,7 +11,7 @@ const guestBook = [
 ]
 
 //Services
-server.addService(pkg.GuestBookService.service, {
+server.addService(services.GuestBookServiceService, {
     list: (_, callback) => {
         callback(null, guestBook);
     },

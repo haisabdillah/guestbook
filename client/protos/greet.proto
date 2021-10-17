@@ -3,6 +3,7 @@ syntax = "proto3";
 //option csharp_namespace = "gRPCServer_Lib";
 
 package protobuf.greet;
+option php_metadata_namespace = "Protobuf\\Greet";
 
 // The greeting service definition.
 service Greeter {

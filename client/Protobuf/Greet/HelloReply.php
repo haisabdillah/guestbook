@@ -18,7 +18,7 @@ class HelloReply extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string message = 1;</code>
      */
-    private $message = '';
+    protected $message = '';
 
     /**
      * Constructor.
@@ -30,7 +30,7 @@ class HelloReply extends \Google\Protobuf\Internal\Message
      * }
      */
     public function __construct($data = NULL) {
-        \GPBMetadata\Greet::initOnce();
+        \Protobuf\Greet\Greet::initOnce();
         parent::__construct($data);
     }
 

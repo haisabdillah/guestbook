@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
-        "google/protobuf": "^v3.11.2",
+        "google/protobuf": "^v3.12.2",
         "grpc/grpc": "^v1.39.0",
         "guzzlehttp/guzzle": "^7.3",
         "laravel/framework": "^8.54",
